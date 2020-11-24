@@ -1,0 +1,744 @@
+<script   src="http://code.jquery.com/jquery-1.12.4.js"   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="   crossorigin="anonymous"></script>
+<style>
+	body{
+		background-color: #BAAEAB;
+		font-family: Helvetica, Arial, sans-serif;
+		color: #131614;
+	}
+
+	canvas{
+		margin-bottom: 20px;
+	}
+
+	#bMain{
+		margin-left: auto;
+	    margin-right: auto;
+	    max-width: 600px;
+	    
+	}
+
+	#bMain div{
+	    background-color: #EDEDED;
+	    border-radius: 10px;
+	    padding: 5px 20px;
+	    margin-bottom: 20px;
+	}
+
+	#bMain input[type=text]{
+		border-radius: 30px;
+		height: 30px;
+		border: none;
+	}
+
+
+	/* tables */
+	#bMain table{
+	    max-width: 600px;
+	    margin: auto;
+	}
+
+	#bMain td{
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    padding-bottom: 15px;
+	    text-align: center;
+	}
+
+
+	#bMain .bCheckboxTable td{
+		text-align: left;
+	}
+
+	.bButton{
+		border-radius: 30px;
+		border: none;
+		background-color: #FF6F59;
+		font-size: 1.5em;
+		font-weight: 700;
+		padding: 10px 20px;
+	}
+
+	.bTextHeader{
+		font-weight: 700;
+		font-size: 1.1em;
+	}
+
+	.hidden{
+		display: none;
+	}
+
+	@media (max-width: 639px) {
+	    iframe {
+	        width: 400px;
+	        height: 200px;
+	    }
+
+	    #bMain td{
+	    padding-left: 7px;
+		padding-right: 15px;
+		padding-bottom: 8px;
+		}
+	}
+
+	@media (max-width: 440px) {
+	    iframe {
+	        width: 270px;
+	        height: 150px;
+	    }
+
+	    #bMain td{
+	    padding-left: 0px;
+		padding-right: 8px;
+		padding-bottom: 5px;
+		}
+
+		/* Since the customer has not yet provided a picture adapted for mobile phones, we temporarily hide it. */
+		.bImagePar{ 
+			display: none;
+		}
+	}
+</style>
+<head>
+	<title>Уровень жизненного баланса</title>
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+</head>
+<body>
+
+<div id="bMain">
+	<form id="bForm">
+		<div>
+		<h2>ТВОЙ УРОВЕНЬ ЖИЗНЕННОГО БАЛАНСА</h2>
+		<p>Пройди опрос и узнай свой уровень жизненного баланса и гармонии.</p>
+		<h3>ЕСТЬ ЛИ В ТВОЕЙ ЖИЗНИ ТО, ЧТО ТЫ ХОЧЕШЬ ИЗМЕНИТЬ?</h3>
+		</div>
+		<p class="bImagePar">
+			<img style="width: 100%;" src="http://u912207y.beget.tech/first_screen.jpg">
+		</p>
+
+		<div>
+			<p class="bTextHeader">ТЕЛО / ЗДОРОВЬЕ</p>
+			<p>Где 1 - тяжелые заболевания, а 10 - полностью здоров	</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bBodyHealth" type="radio" value=1 required></td>
+					<td><input name="bBodyHealth" type="radio" value=2></td>
+					<td><input name="bBodyHealth" type="radio" value=3></td>
+					<td><input name="bBodyHealth" type="radio" value=4></td>
+					<td><input name="bBodyHealth" type="radio" value=5></td>
+					<td><input name="bBodyHealth" type="radio" value=6></td>
+					<td><input name="bBodyHealth" type="radio" value=7></td>
+					<td><input name="bBodyHealth" type="radio" value=8></td>
+					<td><input name="bBodyHealth" type="radio" value=9></td>
+					<td><input name="bBodyHealth" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ТЕЛО / СПОРТ </p>
+			Где 1 - никогда ничем не занимался, а 10 - регулярные занятия</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bBodySport" type="radio" value=1 required></td>
+					<td><input name="bBodySport" type="radio" value=2></td>
+					<td><input name="bBodySport" type="radio" value=3></td>
+					<td><input name="bBodySport" type="radio" value=4></td>
+					<td><input name="bBodySport" type="radio" value=5></td>
+					<td><input name="bBodySport" type="radio" value=6></td>
+					<td><input name="bBodySport" type="radio" value=7></td>
+					<td><input name="bBodySport" type="radio" value=8></td>
+					<td><input name="bBodySport" type="radio" value=9></td>
+					<td><input name="bBodySport" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ТЕЛО / ПИТАНИЕ </p>
+			<p>Где 1 - хронические проблемы, а 10 - здоровое питание</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bBodyFood" type="radio" value=1 required></td>
+					<td><input name="bBodyFood" type="radio" value=2></td>
+					<td><input name="bBodyFood" type="radio" value=3></td>
+					<td><input name="bBodyFood" type="radio" value=4></td>
+					<td><input name="bBodyFood" type="radio" value=5></td>
+					<td><input name="bBodyFood" type="radio" value=6></td>
+					<td><input name="bBodyFood" type="radio" value=7></td>
+					<td><input name="bBodyFood" type="radio" value=8></td>
+					<td><input name="bBodyFood" type="radio" value=9></td>
+					<td><input name="bBodyFood" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ЭМОЦИИ / НАСТРОЕНИЕ </p>
+			<p>Где 1 - депрессия, а 10 - радуюсь каждому дню</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bEmotionMood" type="radio" value=1 required></td>
+					<td><input name="bEmotionMood" type="radio" value=2></td>
+					<td><input name="bEmotionMood" type="radio" value=3></td>
+					<td><input name="bEmotionMood" type="radio" value=4></td>
+					<td><input name="bEmotionMood" type="radio" value=5></td>
+					<td><input name="bEmotionMood" type="radio" value=6></td>
+					<td><input name="bEmotionMood" type="radio" value=7></td>
+					<td><input name="bEmotionMood" type="radio" value=8></td>
+					<td><input name="bEmotionMood" type="radio" value=9></td>
+					<td><input name="bEmotionMood" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">САМООЦЕНКА </p>
+			<p>Где 1 - я ничего не стою, а 10 полное принятие себя </p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bSelfEsteem" type="radio" value=1 required></td>
+					<td><input name="bSelfEsteem" type="radio" value=2></td>
+					<td><input name="bSelfEsteem" type="radio" value=3></td>
+					<td><input name="bSelfEsteem" type="radio" value=4></td>
+					<td><input name="bSelfEsteem" type="radio" value=5></td>
+					<td><input name="bSelfEsteem" type="radio" value=6></td>
+					<td><input name="bSelfEsteem" type="radio" value=7></td>
+					<td><input name="bSelfEsteem" type="radio" value=8></td>
+					<td><input name="bSelfEsteem" type="radio" value=9></td>
+					<td><input name="bSelfEsteem" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ДУХОВНОСТЬ </p>
+			<p>Где 1 - не занимаюсь духовной сферой / откладываю на "черный день", а 10 - постоянно нахожусь в познании себя и мира</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bSpirit" type="radio" value=1 required></td>
+					<td><input name="bSpirit" type="radio" value=2></td>
+					<td><input name="bSpirit" type="radio" value=3></td>
+					<td><input name="bSpirit" type="radio" value=4></td>
+					<td><input name="bSpirit" type="radio" value=5></td>
+					<td><input name="bSpirit" type="radio" value=6></td>
+					<td><input name="bSpirit" type="radio" value=7></td>
+					<td><input name="bSpirit" type="radio" value=8></td>
+					<td><input name="bSpirit" type="radio" value=9></td>
+					<td><input name="bSpirit" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ОТНОШЕНИЯ / ПАРТНЕР </p>
+			<p>Где 1 - нет близких отношений, а 10 - взаимопонимание / любовь</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bRelationshipPartner" type="radio" value=1 required></td>
+					<td><input name="bRelationshipPartner" type="radio" value=2></td>
+					<td><input name="bRelationshipPartner" type="radio" value=3></td>
+					<td><input name="bRelationshipPartner" type="radio" value=4></td>
+					<td><input name="bRelationshipPartner" type="radio" value=5></td>
+					<td><input name="bRelationshipPartner" type="radio" value=6></td>
+					<td><input name="bRelationshipPartner" type="radio" value=7></td>
+					<td><input name="bRelationshipPartner" type="radio" value=8></td>
+					<td><input name="bRelationshipPartner" type="radio" value=9></td>
+					<td><input name="bRelationshipPartner" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ОТНОШЕНИЯ / ДЕТИ (если есть) </p>
+			<p>Где 1 - постоянные конфликты, а 10 - взаимопонимание / любовь</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bRelationshipChildren" type="radio" value=1 required></td>
+					<td><input name="bRelationshipChildren" type="radio" value=2></td>
+					<td><input name="bRelationshipChildren" type="radio" value=3></td>
+					<td><input name="bRelationshipChildren" type="radio" value=4></td>
+					<td><input name="bRelationshipChildren" type="radio" value=5></td>
+					<td><input name="bRelationshipChildren" type="radio" value=6></td>
+					<td><input name="bRelationshipChildren" type="radio" value=7></td>
+					<td><input name="bRelationshipChildren" type="radio" value=8></td>
+					<td><input name="bRelationshipChildren" type="radio" value=9></td>
+					<td><input name="bRelationshipChildren" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ОТНОШЕНИЯ / РОДИТЕЛИ </p>
+			<p>Где 1 - не существуют для меня, а 10 - любовь / благодарность / общение</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bRelationshipParents" type="radio" value=1 required></td>
+					<td><input name="bRelationshipParents" type="radio" value=2></td>
+					<td><input name="bRelationshipParents" type="radio" value=3></td>
+					<td><input name="bRelationshipParents" type="radio" value=4></td>
+					<td><input name="bRelationshipParents" type="radio" value=5></td>
+					<td><input name="bRelationshipParents" type="radio" value=6></td>
+					<td><input name="bRelationshipParents" type="radio" value=7></td>
+					<td><input name="bRelationshipParents" type="radio" value=8></td>
+					<td><input name="bRelationshipParents" type="radio" value=9></td>
+					<td><input name="bRelationshipParents" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ОТНОШЕНИЯ / ДРУЗЬЯ </p>
+			<p>Где 1 - у меня их нет, а 10 - радость от общения / принятие</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bRelationshipFriends" type="radio" value=1 required></td>
+					<td><input name="bRelationshipFriends" type="radio" value=2></td>
+					<td><input name="bRelationshipFriends" type="radio" value=3></td>
+					<td><input name="bRelationshipFriends" type="radio" value=4></td>
+					<td><input name="bRelationshipFriends" type="radio" value=5></td>
+					<td><input name="bRelationshipFriends" type="radio" value=6></td>
+					<td><input name="bRelationshipFriends" type="radio" value=7></td>
+					<td><input name="bRelationshipFriends" type="radio" value=8></td>
+					<td><input name="bRelationshipFriends" type="radio" value=9></td>
+					<td><input name="bRelationshipFriends" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ОТНОШЕНИЯ / ЛЮДИ </p>
+			<p>Где 1 - не люблю людей / избегаю общения / или испытываю дефицит, а 10 - всегда выгодный взаимообмен ресурсами и энергией</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bRelationshipPeople" type="radio" value=1 required></td>
+					<td><input name="bRelationshipPeople" type="radio" value=2></td>
+					<td><input name="bRelationshipPeople" type="radio" value=3></td>
+					<td><input name="bRelationshipPeople" type="radio" value=4></td>
+					<td><input name="bRelationshipPeople" type="radio" value=5></td>
+					<td><input name="bRelationshipPeople" type="radio" value=6></td>
+					<td><input name="bRelationshipPeople" type="radio" value=7></td>
+					<td><input name="bRelationshipPeople" type="radio" value=8></td>
+					<td><input name="bRelationshipPeople" type="radio" value=9></td>
+					<td><input name="bRelationshipPeople" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">РЕАЛИЗАЦИЯ / РАБОТА </p>
+			<p>Где 1 - хожу кое-как, только из-за денег , а 10 - Дело Жизни / любимое занятие</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bRealizeWork" type="radio" value=1 required></td>
+					<td><input name="bRealizeWork" type="radio" value=2></td>
+					<td><input name="bRealizeWork" type="radio" value=3></td>
+					<td><input name="bRealizeWork" type="radio" value=4></td>
+					<td><input name="bRealizeWork" type="radio" value=5></td>
+					<td><input name="bRealizeWork" type="radio" value=6></td>
+					<td><input name="bRealizeWork" type="radio" value=7></td>
+					<td><input name="bRealizeWork" type="radio" value=8></td>
+					<td><input name="bRealizeWork" type="radio" value=9></td>
+					<td><input name="bRealizeWork" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">РЕАЛИЗАЦИЯ / ХОББИ </p>
+			<p>Где 1 - ничем не увлекаюсь, а 10 - Мое хобби - моя работа</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bRealizeHobby" type="radio" value=1 required></td>
+					<td><input name="bRealizeHobby" type="radio" value=2></td>
+					<td><input name="bRealizeHobby" type="radio" value=3></td>
+					<td><input name="bRealizeHobby" type="radio" value=4></td>
+					<td><input name="bRealizeHobby" type="radio" value=5></td>
+					<td><input name="bRealizeHobby" type="radio" value=6></td>
+					<td><input name="bRealizeHobby" type="radio" value=7></td>
+					<td><input name="bRealizeHobby" type="radio" value=8></td>
+					<td><input name="bRealizeHobby" type="radio" value=9></td>
+					<td><input name="bRealizeHobby" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ФИНАНСЫ / ПОСТУПЛЕНИЕ </p>
+			<p>Где 1 - постоянный дефицит, а 10 - есть всегда / хватает на все с избытком</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bFinanceIncome" type="radio" value=1 required></td>
+					<td><input name="bFinanceIncome" type="radio" value=2></td>
+					<td><input name="bFinanceIncome" type="radio" value=3></td>
+					<td><input name="bFinanceIncome" type="radio" value=4></td>
+					<td><input name="bFinanceIncome" type="radio" value=5></td>
+					<td><input name="bFinanceIncome" type="radio" value=6></td>
+					<td><input name="bFinanceIncome" type="radio" value=7></td>
+					<td><input name="bFinanceIncome" type="radio" value=8></td>
+					<td><input name="bFinanceIncome" type="radio" value=9></td>
+					<td><input name="bFinanceIncome" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ФИНАНСЫ / ТРАТЫ </p>
+			<p>Где 1 - постоянные долги и кредиты, а 10 - не превышают доходы</p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bFinanceExpense" type="radio" value=1 required></td>
+					<td><input name="bFinanceExpense" type="radio" value=2></td>
+					<td><input name="bFinanceExpense" type="radio" value=3></td>
+					<td><input name="bFinanceExpense" type="radio" value=4></td>
+					<td><input name="bFinanceExpense" type="radio" value=5></td>
+					<td><input name="bFinanceExpense" type="radio" value=6></td>
+					<td><input name="bFinanceExpense" type="radio" value=7></td>
+					<td><input name="bFinanceExpense" type="radio" value=8></td>
+					<td><input name="bFinanceExpense" type="radio" value=9></td>
+					<td><input name="bFinanceExpense" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p class="bTextHeader">ФИНАНСЫ / ОБМЕН </p>
+			<p>Где 1 - постоянно экономлю / откладываю на "черный день", а 10 - легко отдаю / принимаю / преумножаю </p>
+			<table>
+				<tr>
+					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+				</tr>
+				<tr>
+					<td><input name="bFinanceChange" type="radio" value=1 required></td>
+					<td><input name="bFinanceChange" type="radio" value=2></td>
+					<td><input name="bFinanceChange" type="radio" value=3></td>
+					<td><input name="bFinanceChange" type="radio" value=4></td>
+					<td><input name="bFinanceChange" type="radio" value=5></td>
+					<td><input name="bFinanceChange" type="radio" value=6></td>
+					<td><input name="bFinanceChange" type="radio" value=7></td>
+					<td><input name="bFinanceChange" type="radio" value=8></td>
+					<td><input name="bFinanceChange" type="radio" value=9></td>
+					<td><input name="bFinanceChange" type="radio" value=10></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p><b>Я вас поздравляю! Сейчас вы проделали огромную работу! Вы остановились и задумались - что происходит с моей жизнью? Из чего она состоит. Это первый и самый важный шаг к осознанности! Я предлагаю вам не останавливаться и сформулировать вопросы касающиеся тех сфер жизни где есть большие перепады.</b></p>
+		</div>
+		<div>
+			<p>Ваше имя</p>
+			<p><input name="bName" type="text" placeholder="   Мой ответ" required></p>
+		</div>
+		<div>
+			<p>Дата вашего рождения</p>
+			<p><input type="date" name="bCalendar" value="1990-01-01" max="2020-01-01" min="1900-01-01"></p>
+		</div>
+		<p style="text-align: center;">
+			<button class="bButton" type="submit">ОТПРАВИТЬ</button>
+		</p>
+	</form>
+	</div>
+	<div id="bCanvasDiv" class="hidden" style="text-align: center;">
+		<canvas id="bCanvas" width="900" height="1000"></canvas> 
+		<div style="margin-top: 15px;">
+			<a class="bButton" href="" id="canvasDownloadLink" download="balance-result.png">Скачать результат</a>
+		</div>
+	</div>
+</body>
+
+<script>
+	// get user entered data after submitting the form
+	function bGetData(){
+		bResultData = {
+			"ЗДОРОВЬЕ": Number($("input[type=radio][name=bBodyHealth]:checked").val()),
+			"СПОРТ": Number($("input[type=radio][name=bBodySport]:checked").val()),
+			"ПИТАНИЕ": Number($("input[type=radio][name=bBodyFood]:checked").val()),
+			"НАСТРОЕНИЕ": Number($("input[type=radio][name=bEmotionMood]:checked").val()),
+			"САМООЦЕНКА": Number($("input[type=radio][name=bSelfEsteem]:checked").val()),
+			"ДУХОВНОСТЬ": Number($("input[type=radio][name=bSpirit]:checked").val()),
+			"ПАРТНЕР": Number($("input[type=radio][name=bRelationshipPartner]:checked").val()),
+			"ДЕТИ": Number($("input[type=radio][name=bRelationshipChildren]:checked").val()),
+			"РОДИТЕЛИ": Number($("input[type=radio][name=bRelationshipParents]:checked").val()),
+			"ДРУЗЬЯ": Number($("input[type=radio][name=bRelationshipFriends]:checked").val()),
+			"ЛЮДИ": Number($("input[type=radio][name=bRelationshipPeople]:checked").val()),
+			"РАБОТА": Number($("input[type=radio][name=bRealizeWork]:checked").val()),
+			"ХОББИ": Number($("input[type=radio][name=bRealizeHobby]:checked").val()),
+			"ДОХОД": Number($("input[type=radio][name=bFinanceIncome]:checked").val()),
+			"ТРАТЫ": Number($("input[type=radio][name=bFinanceExpense]:checked").val()),
+			"ОБМЕН": Number($("input[type=radio][name=bFinanceChange]:checked").val())
+		}
+	}
+
+	//Hide test fields and show the result
+	$('#bForm').submit(function () {
+		$("#bMain").addClass("hidden");
+		$("#bCanvasDiv").removeClass("hidden");
+		bGetData();
+		bDrawCanvas();
+
+		bDrawScales();
+
+	    return false; //Suspending the standard action - submitting the form
+	});
+
+	// draw scales control
+	function bDrawScales(){
+		bDrawRect(0, "ЗДОРОВЬЕ");
+		bDrawRect(1, "СПОРТ");
+		bDrawRect(2, "ПИТАНИЕ");
+		bDrawRect(3, "НАСТРОЕНИЕ");
+		bDrawRect(4, "САМООЦЕНКА");
+		bDrawRect(5, "ДУХОВНОСТЬ");
+		bDrawRect(6, "ПАРТНЕР");
+		bDrawRect(7, "ДЕТИ");
+		bDrawRect(8, "РОДИТЕЛИ");
+		bDrawRect(9, "ДРУЗЬЯ");
+		bDrawRect(10, "ЛЮДИ");
+		bDrawRect(11, "РАБОТА");
+		bDrawRect(12, "ХОББИ");
+		bDrawRect(13, "ДОХОД");
+		bDrawRect(14, "ТРАТЫ");
+		bDrawRect(15, "ОБМЕН");
+	}
+
+	// draw scales
+	function bDrawRect(bPos, bVal){
+		// Determining the color of the scale: 1-3 bad, 4-7 normal, 8-10 good
+		if (bResultData[bVal] < 4){
+			ctx.fillStyle = '#ff101e';
+		} else if (bResultData[bVal] < 8){
+			ctx.fillStyle = '#d4d4d4';
+		} else {
+			ctx.fillStyle = '#618b70';
+		}
+		
+		let yPos = (bPos * 40) + 125;
+		let xPos = 475;
+
+		let yHeight = 30;
+		let xWidth = 40 * bResultData[bVal];
+
+		ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+		ctx.fillStyle = 'white';
+		ctx.textBaseline = "middle";
+		ctx.textAlign = "right";
+		ctx.font = "20px Arial";
+
+		ctx.fillText(bVal, 400, yPos + yHeight/2);
+
+	}
+
+	function bDrawDescription(){
+		let yPos = 795; // draw numbers 1-10 under the scales (рисуем цифры 1-10 под шкалами)
+		let xPos = 495;
+		for (let i = 1; i < 11; i++) { 
+			ctx.fillStyle = 'white';
+            ctx.textAlign = "center";
+            ctx.font = "700 28px Arial";
+
+            ctx.fillText(i, xPos, yPos);
+            xPos += 40;
+		}
+
+		// draw text decoding: squares and descriptions
+		// рисуем расшифроку текста: квадраты и описания
+		ctx.textAlign = "left";
+		ctx.textBaseline = "top"; 
+        ctx.font = "18px Arial";
+
+		let yHeight = 35;
+		let xWidth = 35;
+
+		yPos = 825;
+		xPos = 475;
+
+		ctx.fillStyle = '#ff101e';
+		ctx.fillRect(xPos,yPos,xWidth,yHeight);
+		ctx.fillStyle = 'white';
+		ctx.fillText('крайне низкий показатель,', xPos + 50, yPos - 10);
+		ctx.fillText('требует внимания', xPos + 50, yPos + 14);
+
+		yPos += 55;
+		ctx.fillStyle = '#d4d4d4';
+		ctx.fillRect(xPos,yPos,xWidth,yHeight);
+		ctx.fillStyle = 'white';
+		ctx.fillText('средние показатели', xPos + 50, yPos + 5);
+
+		yPos += 55;
+		ctx.fillStyle = '#618b70';
+		ctx.fillRect(xPos,yPos,xWidth,yHeight);
+		ctx.fillStyle = 'white';
+		ctx.fillText('высокий показатель, ресурс', xPos + 50, yPos - 10);
+		ctx.fillText('для восстановления', xPos + 50, yPos + 14);
+
+		// draw the description text (рисуем текст описания слева)
+		xPos = 25;
+		yPos = 780;
+        ctx.font = "18px Arial";
+
+        ctx.fillText('самое опасное состояние —  это наличие', xPos, yPos);
+		ctx.fillText('зелёных и красных элементов в вашем тесте.', xPos, yPos += 20);
+
+		ctx.fillText('это значит, что есть сферы, которые', xPos, yPos += 40);
+		ctx.fillText('забирают на себя все внимание, а есть те,', xPos, yPos += 20);
+		ctx.fillText('которые находятся в большом минусе.', xPos, yPos += 20);
+
+		ctx.fillText('разница между этими показателями — это', xPos, yPos += 40);
+		ctx.fillText('дисбаланс, который может приводить к', xPos, yPos += 20);
+		ctx.fillText('разного рода нестабильным состояниям психики', xPos, yPos += 20);
+	}
+
+	// main function
+	function bDrawCanvas(){
+        canvas = document.getElementById('bCanvas');
+        if (canvas.getContext){
+            ctx = canvas.getContext('2d');
+
+            bGradient = ctx.createLinearGradient(700, 0, 200, 1000);
+            bGradient.addColorStop(0, "#575252");
+            bGradient.addColorStop(1, "#1c1b1b");
+            ctx.fillStyle = bGradient;
+            ctx.fillRect(0,0,900,1000);
+
+            ctx.fillStyle = 'white';
+            ctx.textAlign = "center";
+            ctx.font = "600 45px Arial";
+            ctx.fillText('РЕЗУЛЬТАТЫ ТЕСТА', 450, 65);
+
+            let xPos = 475;
+            let yPos = 125;
+            let xWidth = 400;
+            let yHeight = 30;
+
+            for (let i = 0; i < 16; i++) {
+            	ctx.fillStyle = '#525551';
+          		xPos = 25;
+          		xWidth = 190;
+          		yHeight = 30;
+          		
+          		ctx.textBaseline = "middle";
+				ctx.textAlign = "right";
+				ctx.font = "600 20px Arial";
+				
+
+            	switch (i){
+					case 0:  // тело
+					// case 1:
+					// case 2:
+						yHeight = 110;
+						ctx.fillRect(xPos,yPos,xWidth,yHeight);
+						ctx.fillStyle = 'white';
+						ctx.fillText('ТЕЛО', 200, yPos + yHeight/2);
+					break;
+
+					case 3: // эмоции
+						ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+						ctx.fillStyle = 'white';
+						ctx.fillText('ЭМОЦИИ', 200, yPos + yHeight/2);
+					break;
+
+					case 4: // самооценка 
+						ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+						ctx.fillStyle = 'white';
+						ctx.fillText('САМООЦЕНКА', 200, yPos + yHeight/2);
+					break;
+
+					case 5: // духовность 
+						ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+						ctx.fillStyle = 'white';
+						ctx.fillText('ДУХОВНОСТЬ', 200, yPos + yHeight/2);
+					break;
+
+					case 6: // отношения
+					// case 7:
+					// case 8:
+					// case 9:
+					// case 10:
+						yHeight = 190;
+						ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+						ctx.fillStyle = 'white';
+						ctx.fillText('ОТНОШЕНИЯ', 200, yPos + yHeight/2);
+					break; 
+
+					case 11: // реализация
+					// case 12:
+						yHeight = 70;
+						ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+						ctx.fillStyle = 'white';
+						ctx.fillText('РЕАЛИЗАЦИЯ', 200, yPos + yHeight/2);
+					break;
+
+					case 13: // финансы
+					// case 14:
+					// case 15:
+						yHeight = 110;
+						ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+						ctx.fillStyle = 'white';
+						ctx.fillText('ФИНАНСЫ', 200, yPos + yHeight/2);
+					break;
+				}
+
+				ctx.textBaseline="alphabetic"; 
+				yHeight = 30;
+				
+
+          		xPos = 225;
+          		ctx.fillStyle = '#5b5858';
+          		ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+          		ctx.fillStyle = '#7d7a7a';
+          		xPos = 475;
+          		xWidth = 400;
+	            ctx.fillRect(xPos,yPos,xWidth,yHeight);
+
+	            yPos += 40;
+            }
+        }
+
+        bDrawDescription();
+
+        //Create a link to download the picture
+        setTimeout(function(){ 
+            let bDataURI = canvas.toDataURL('image/png', 1.0);
+	        document.getElementById("canvasDownloadLink").href = bDataURI;
+    	}, 300);
+        
+  	}
+</script>
